@@ -6,7 +6,7 @@ export { createLogger } from '../logger'
 type SecureLogConfigTuple = [DestinationStream | undefined, LoggerOptions]
 
 let config: SecureLogConfigTuple | null = null
-function getConfig() {
+function getConfig(): SecureLogConfigTuple {
     if (config != null) {
         return config
     }
