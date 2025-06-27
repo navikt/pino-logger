@@ -129,7 +129,7 @@ Simply pipe the output of your development server into pino pretty:
 
 ```
 "scripts": {
-  "dev": "next dev | pino-pretty",
+  "dev": "next dev | pino-pretty --messageKey=message",
 }
 ```
 
