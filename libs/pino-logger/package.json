@@ -21,6 +21,11 @@
             "types": "./dist/secure-log/index.d.cts",
             "import": "./dist/secure-log/index.cjs",
             "require": "./dist/secure-log/index.cjs"
+        },
+        "./team-log": {
+            "types": "./dist/team-log/index.d.cts",
+            "import": "./dist/team-log/index.cjs",
+            "require": "./dist/team-log/index.cjs"
         }
     },
     "scripts": {
@@ -31,7 +36,8 @@
         "pino": "8 || 9"
     },
     "optionalDependencies": {
-        "pino-roll": "3"
+        "pino-roll": "3",
+        "pino-socket": "7"
     },
     "devDependencies": {
         "@types/node": "^22.14.1",
