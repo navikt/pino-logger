@@ -28,8 +28,10 @@ jobs:
       - run: yarn build
 
       - name: Publish pino-logger
-        if: github.ref == 'refs/heads/main'
-        run: yarn npm publish
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/team-logs'
+        run: |
+          jq --arg version "4.1.0-$(echo $GITHUB_SHA | cut -c1-7)" '.version = $version' package.json > updated.json && mv updated.json package.json
+          yarn npm publish --tag beta
         working-directory: libs/pino-logger
 
       - name: Publish next-logger
