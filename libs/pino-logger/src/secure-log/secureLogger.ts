@@ -36,14 +36,15 @@ function getConfig() {
     return config
 }
 
+/**
+ * Uses a proxy to defer the creation of the logger until it is first accessed, this is so that build systems
+ * such as nextjs that ofter traverse the module tree during build, doesn't actually try and access the file
+ * system /secure-logs/secure.log before runtime.
+ */
 export const createSecureLogger = (defaultConfig: LoggerOptions = {}): ReturnType<typeof createLogger> => {
     let logger: ReturnType<typeof createLogger> | null = null
 
     const getLogger = () => {
-        if (logger != null) {
-            null
-        }
-
         const [transport, devConfig] = getConfig()
         logger = createLogger({ ...defaultConfig, ...devConfig }, transport)
         return logger
