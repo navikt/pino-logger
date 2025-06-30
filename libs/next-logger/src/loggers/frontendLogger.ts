@@ -1,19 +1,23 @@
 import pino from 'pino'
 import { getConfig } from '../config'
 
-export const frontendLogger = (secure?: boolean): pino.Logger =>
+type FrontendLoggerOptions = {
+    type: 'secure' | 'team' | 'default'
+}
+
+export const frontendLogger = (opts: FrontendLoggerOptions = { type: 'default' }): pino.Logger =>
     pino({
         browser: {
             transmit: {
                 send: async (_, logEvent) => {
                     const config = getConfig()
 
-                    if (!secure) {
+                    if (opts.type == 'default') {
                         config?.onLog?.(logEvent)
                     }
 
                     try {
-                        await fetch(getPath(secure ?? false), {
+                        await fetch(getPath(opts?.type ?? 'default'), {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json',
@@ -32,12 +36,15 @@ export const frontendLogger = (secure?: boolean): pino.Logger =>
         },
     })
 
-function getPath(secure: boolean): string {
+function getPath(type: FrontendLoggerOptions['type']): string {
     const config = getConfig()
-    if (!secure) {
-        return `${config?.basePath ?? ''}${config?.apiPath ?? `/api/logger`}`
-    } else {
-        return `${config?.basePath ?? ''}${config?.apiPath ?? `/api/secure-logger`}`
+    switch (type) {
+        case 'default':
+            return `${config?.basePath ?? ''}${config?.apiPath ?? `/api/logger`}`
+        case 'secure':
+            return `${config?.basePath ?? ''}${config?.secureLogApiPath ?? `/api/secure-logger`}`
+        case 'team':
+            return `${config?.basePath ?? ''}${config?.teamLogApiPath ?? `/api/team-logger`}`
     }
 }
 

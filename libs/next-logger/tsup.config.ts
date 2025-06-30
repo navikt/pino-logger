@@ -11,5 +11,8 @@ export default defineConfig({
         'src/secure-log/index.ts',
         'src/secure-log/routes/app-dir/index.ts',
         'src/secure-log/routes/pages/index.ts',
+        'src/team-log/index.ts',
+        'src/team-log/routes/app-dir/index.ts',
+        'src/team-log/routes/pages/index.ts',
     ],
 })
