@@ -27,11 +27,14 @@ jobs:
       - run: yarn test
       - run: yarn build
 
-      - name: Publish pino-logger
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/team-logs'
+      - name: Summarize tsup build
         run: |
-          jq --arg version "4.1.0-$(echo $GITHUB_SHA | cut -c1-7)" '.version = $version' package.json > updated.json && mv updated.json package.json
-          yarn npm publish --tag beta
+          ./scripts/meta.mjs libs/pino-logger >> $GITHUB_STEP_SUMMARY
+          ./scripts/meta.mjs libs/next-logger >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish pino-logger
+        if: github.ref == 'refs/heads/main'
+        run: yarn npm publish
         working-directory: libs/pino-logger
 
       - name: Publish next-logger
