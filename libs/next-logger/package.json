@@ -32,6 +32,11 @@
             "import": "./dist/secure-log/index.cjs",
             "require": "./dist/secure-log/index.cjs"
         },
+        "./team-log": {
+            "types": "./dist/team-log/index.d.cts",
+            "import": "./dist/team-log/index.cjs",
+            "require": "./dist/team-log/index.cjs"
+        },
         "./secure-log/app-dir": {
             "types": "./dist/secure-log/routes/app-dir/index.d.cts",
             "import": "./dist/secure-log/routes/app-dir/index.cjs",
