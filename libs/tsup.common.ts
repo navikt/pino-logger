@@ -5,4 +5,5 @@ export const sharedConfig: Options = {
     splitting: false,
     sourcemap: true,
     clean: true,
+    metafile: true,
 }
