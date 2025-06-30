@@ -58,18 +58,7 @@ export const createTeamLogger = (defaultConfig: LoggerOptions = {}): ReturnType<
 
     const getLogger = () => {
         const [transport, requiredFields, devConfig] = getConfig()
-
-        logger = createLogger(
-            { ...defaultConfig, ...devConfig },
-            // real: transport
-            // debug:
-            pino.multistream([
-                transport ?? { stream: process.stdout },
-                {
-                    stream: process.stdout,
-                },
-            ]),
-        ).child(requiredFields)
+        logger = createLogger({ ...defaultConfig, ...devConfig }, transport).child(requiredFields)
         return logger
     }
 
