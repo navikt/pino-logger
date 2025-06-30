@@ -41,6 +41,16 @@
             "types": "./dist/secure-log/routes/pages/index.d.cts",
             "import": "./dist/secure-log/routes/pages/index.js",
             "require": "./dist/secure-log/routes/pages/index.js"
+        },
+        "./team-log/app-dir": {
+            "types": "./dist/team-log/routes/app-dir/index.d.cts",
+            "import": "./dist/team-log/routes/app-dir/index.cjs",
+            "require": "./dist/team-log/routes/app-dir/index.cjs"
+        },
+        "./team-log/pages": {
+            "types": "./dist/team-log/routes/pages/index.d.cts",
+            "import": "./dist/team-log/routes/pages/index.js",
+            "require": "./dist/team-log/routes/pages/index.js"
         }
     },
     "scripts": {
