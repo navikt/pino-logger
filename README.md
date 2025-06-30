@@ -25,7 +25,18 @@ yarn add @navikt/pino-logger pino
 npm i @navikt/pino-logger pino
 ```
 
-if you want to use the secure logger, you also need to install `pino-roll`:
+if you want to use the [team logs](https://docs.nais.io/observability/logging/how-to/team-logs), you also need to
+install `pino-socket`:
+
+```bash
+yarn add pino-socket
+```
+
+```bash
+npm i pino-socket
+```
+
+if you want to use the _**deprecated**_ secure logger (don't, use team logs), you also need to install `pino-roll`:
 
 ```bash
 yarn add pino-roll
@@ -37,8 +48,12 @@ npm i pino-roll
 
 ### Step 1: Logging
 
-Anywhere in your application where you want to log, you should import `import { logger } from '@navikt/pino-logger';`, this is a [pino](https://github.com/pinojs/pino/blob/master/docs/api.md#logger) instance, use it to log, for example: `logger.warn("Uh oh")`.
-Alternatively, if you need secure logging, use `ìmport { secureLogger } from '@navikt/pino-logger';`. See [Securelogs](#Securelogs) for more information on secure logging.
+Anywhere in your application where you want to log, you should import `import { logger } from '@navikt/pino-logger';`,
+this is a [pino](https://github.com/pinojs/pino/blob/master/docs/api.md#logger) instance, use it to log, for example:
+`logger.warn("Uh oh")`.
+
+Alternatively, if you need secure logging, use `ìmport { teamLogger } from '@navikt/pino-logger/team-logs';`.
+See [Team Logs](#team-logs) for more information on secure logging.
 
 ### Step 2: pino-pretty
 
@@ -62,7 +77,8 @@ Simply pipe the output of your development server into pino pretty with correct 
 
 # @navikt/next-logger
 
-An isomorphic logger that lets you log from both the frontend and the backend. Both will log in a JSON format that [logs.adeo.no](https://logs.adeo.no) understands. And all logs are grouped under your application (`+application:yourapp`) with correct log level.
+An isomorphic logger that lets you log from both the frontend and the backend. Both will log in a JSON format
+that [logs.adeo.no](https://logs.adeo.no) understands. And all logs are grouped under your application (`+application:yourapp`) with correct log level.
 
 Now with [SecureLogs](https://doc.nais.io/observability/logging/how-to/enable-secure-logs/) support!
 
@@ -110,8 +126,12 @@ export { loggingRoute as default } from '@navikt/next-logger/pages'
 
 ### Step 2: Logging
 
-Anywhere in your application where you want to log, you should import `import { logger } from '@navikt/next-logger';`, this is a [pino](https://github.com/pinojs/pino/blob/master/docs/api.md#logger) instance, use it to log, for example: `logger.warn("Uh oh")`.
-Alternatively, if you need secure logging, use `ìmport { secureLogger } from '@navikt/next-logger';`. See [Securelogs](#Securelogs) for more information on secure logging.
+Anywhere in your application where you want to log, you should import `import { logger } from '@navikt/next-logger';`,
+this is a [pino](https://github.com/pinojs/pino/blob/master/docs/api.md#logger) instance, use it to log, for example:
+`logger.warn("Uh oh")`.
+
+Alternatively, if you need secure logging, use `ìmport { teamLogger } from '@navikt/next-logger/team-logs';`.
+See [Team Logs](#team-logs) for more information on secure logging.
 
 ### Step 3: pino-pretty
 
@@ -151,9 +171,11 @@ module.exports = {
 
 ### App Dir
 
-You want this configuration to execute as early as possible, but on the actual client. Typically in your app-dir app, you will have for example a `<Providers>`-client that is `"use client"`-enabled.
+You want this configuration to execute as early as possible, but on the actual client. Typically in your app-dir app,
+you will have for example a `<Providers>`-client that is `"use client"`-enabled.
 
-On the _root_ of any `"use client"`-enabled file that wraps your root layout.tsx, you can configure the library, for example:
+On the _root_ of any `"use client"`-enabled file that wraps your root layout.tsx, you can configure the library, for
+example:
 
 ```ts
 "use client"
@@ -162,14 +184,15 @@ configureLogger({
     basePath: '/my/base/path',
 })
 
-export const MyProviders() {
+export function MyProviders(): ReactElement {
    ...
 }
 ```
 
 ### Pages
 
-If your application is using a base path, or you want to have your logger on a different API-route, you can configure the logger.
+If your application is using a base path, or you want to have your logger on a different API-route, you can configure
+the logger.
 
 In your `_app.tsx`, on root in the file, you can use `configureLogger` as such:
 
@@ -188,37 +211,43 @@ configureLogger({
 })
 ```
 
-## Securelogs
+## Team Logs
 
-If you want to log sensitive information, you can use the `secureLogger` function. This will instead of logging to stdout log to a file on /secure-logs.
-This requires some setup, see [nais docs](https://doc.nais.io/observability/logging/how-to/enable-secure-logs/) for how to enable secure logging in your app.
+If you want to log sensitive information, this will ship the logs to
+nais' ["Team Logs"](https://docs.nais.io/observability/logging/how-to/team-logs/) instead of the default logs. This is
+useful for logging sensitive information that you don't want to be publicly available.
 
-The log file is setup with [pino-roll](https://www.npmjs.com/package/pino-roll) for rolling the logs based on file size.
+See the [team log docs](https://docs.nais.io/observability/logging/how-to/team-logs/) for details on how to enable it
+for your app.
 
-Using secure logger as an isomorphic logger requires an additonal API-route in your next app, the configuration is similar to the primary logger route.
+This library uses the `pino-socket` library to send logs to the team logs over TCP to the nais' team log ingester.
+
+Using team logger as an isomorphic logger requires an additonal API-route in your next app, the configuration is
+similar to the primary logger route.
 
 **For app dir:**
 
-Create a new API route `/app/api/secure-logger/route.ts`, it should look like this:
+Create a new API route `/app/api/team-logger/route.ts`, it should look like this:
 
 ```ts
-export { POST } from '@navikt/next-logger/secure-log/app-dir'
+export { POST } from '@navikt/next-logger/team-log/app-dir'
 ```
 
 **For pages dir:**
 
-Create a new API route `/pages/api/secure-logger.ts`, it should look like this:
+Create a new API route `/pages/api/team-logger.ts`, it should look like this:
 
 ```ts
-export { pinoLoggingRoute as default } from '@navikt/next-logger/secure-log/pages'
+export { pinoLoggingRoute as default } from '@navikt/next-logger/team-log/pages'
 ```
 
-If you need to add some extra metadata to secure log statements server side, you can add an metadata-middleware to extract info from the request:
+If you need to add some extra metadata to team log statements server side, you can add an metadata-middleware to
+extract info from the request:
 
 **App dir**
 
 ```ts
-import { withMetadata } from '@navikt/next-logger/secure-log/app-dir'
+import { withMetadata } from '@navikt/next-logger/team-log/app-dir'
 import { UAParser } from 'ua-parser-js'
 
 export const POST = withMetadata((request) => {
@@ -236,7 +265,7 @@ export const POST = withMetadata((request) => {
 **Pages**
 
 ```ts
-import { withMetadata } from '@navikt/next-logger/secure-log/pages'
+import { withMetadata } from '@navikt/next-logger/team-log/pages'
 import { UAParser } from 'ua-parser-js'
 
 export default withMetadata((req) => {
@@ -253,7 +282,21 @@ export default withMetadata((req) => {
 
 Remember not to parse the body using `.json()` or `.text`!
 
-This feature is available only for secure-log.
+This feature is available only for team-log and secure-log.
+
+## Securelogs (Deprecated)
+
+If you want to log sensitive information, you can use the `secureLogger` function. This will instead of logging to
+stdout log to a file on /secure-logs.
+This requires some setup, see [nais docs](https://doc.nais.io/observability/logging/how-to/enable-secure-logs/) for how
+to enable secure logging in your app.
+
+The log file is setup with [pino-roll](https://www.npmjs.com/package/pino-roll) for rolling the logs based on file size.
+
+For more details on how to configure the required API-routes for secure logging, see the team log section above, but
+replace the imports with the secure logger imports.
+
+Remember secure logs are being deprecated in favor of team logs, so you should not use this feature in new applications.
 
 ## Breaking changes: migrating from v1 to v2/v3
 
@@ -284,7 +327,8 @@ If you want to use the new secureLogger feature, refer to the Securelogs docs ab
 ## Breaking changes: migrating from v3 to v4
 
 The only change is that the default message key is `message` instead of `msg`. This doesn't affect you
-if you only view logs in Elastic, but if you have used some manual filters in Grafan (`{{ .msg }}`), you will need to change it to `{{ .message }}`.
+if you only view logs in Elastic, but if you have used some manual filters in Grafana (`{{ .msg }}`), you will need to
+change it to `{{ .message }}`.
 
 If you use `pino-pretty` you will also need to change the `--messageKey` option to `message` instead of `msg`.
 
