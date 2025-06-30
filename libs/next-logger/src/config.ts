@@ -8,10 +8,14 @@ export interface LoggerConfiguration {
     onLog?: (event: LogEvent) => void
 }
 
-let config: LoggerConfiguration | null = null
-
-export const configureLogger = (configuration: LoggerConfiguration) => {
-    config = configuration
+declare global {
+    var _loggerConfig: LoggerConfiguration | null
 }
 
-export const getConfig = (): LoggerConfiguration | null => config
+export const configureLogger = (configuration: LoggerConfiguration) => {
+    globalThis._loggerConfig = configuration
+}
+
+export const getConfig = (): LoggerConfiguration | null => {
+    return globalThis._loggerConfig || null
+}
