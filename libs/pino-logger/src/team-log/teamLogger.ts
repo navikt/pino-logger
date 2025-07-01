@@ -33,14 +33,7 @@ function getConfig(): TeamLogConfigTuple {
 
     console.warn('[TEAM LOG]: Will log secure log to stdout/stderr. Do not use in production.')
     config = [
-        pino.transport({
-            target: 'pino-socket',
-            options: {
-                address: 'team-logs.nais-system',
-                port: 5170,
-                mode: 'tcp',
-            },
-        }),
+        undefined,
         {},
         {
             msgPrefix: '[TEAM LOG (local dev)]: ',
