@@ -504,7 +504,7 @@ __metadata:
     "@navikt/pino-logger": "workspace:^"
     "@types/node": "npm:^22.15.34"
     next: "npm:15.3.4"
-    pino: "npm:^9.7.0"
+    pino: "npm:^9.9.0"
     pino-roll: "npm:3"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.8.3"
@@ -523,7 +523,7 @@ __metadata:
   resolution: "@navikt/pino-logger@workspace:libs/pino-logger"
   dependencies:
     "@types/node": "npm:^22.15.34"
-    pino: "npm:^9.7.0"
+    pino: "npm:^9.9.0"
     pino-roll: "npm:3"
     pino-socket: "npm:7"
     tsup: "npm:^8.5.0"
@@ -3604,9 +3604,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^9.7.0":
-  version: 9.7.0
-  resolution: "pino@npm:9.7.0"
+"pino@npm:^9.9.0":
+  version: 9.9.0
+  resolution: "pino@npm:9.9.0"
   dependencies:
     atomic-sleep: "npm:^1.0.0"
     fast-redact: "npm:^3.1.1"
@@ -3621,7 +3621,7 @@ __metadata:
     thread-stream: "npm:^3.0.0"
   bin:
     pino: bin.js
-  checksum: 10c0/c7f8a83a9a9d728b4eff6d0f4b9367f031c91bcaa5806fbf0eedcc8e77faba593d59baf11a8fba0dd1c778bb17ca7ed01418ac1df4ec129faeedd4f3ecaff66f
+  checksum: 10c0/e2b05d4b1cf73447648ec98d247fd0f1f8020a819ebc2c97fab7fa8b9efe2d1a82ebf674ed2489bb7a1d3a75350c044c776f124e9c29c004bfb133b9e2ac0871
   languageName: node
   linkType: hard
 

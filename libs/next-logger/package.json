@@ -76,7 +76,7 @@
     "devDependencies": {
         "@types/node": "^22.15.34",
         "next": "15.3.4",
-        "pino": "^9.7.0",
+        "pino": "^9.9.0",
         "tsup": "^8.5.0",
         "typescript": "^5.8.3",
         "vitest": "^3.2.4"
