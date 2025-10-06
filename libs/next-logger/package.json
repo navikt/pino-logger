@@ -11,52 +11,20 @@
         "dist",
         "package.json"
     ],
+    "engines": {
+        "node": "^20.19.0 || >= 22.12.0"
+    },
+    "types": "./dist/index.d.ts",
     "exports": {
-        ".": {
-            "types": "./dist/index.d.cts",
-            "import": "./dist/index.cjs",
-            "require": "./dist/index.cjs"
-        },
-        "./app-dir": {
-            "types": "./dist/routes/app-dir/index.d.cts",
-            "import": "./dist/routes/app-dir/index.cjs",
-            "require": "./dist/routes/app-dir/index.cjs"
-        },
-        "./pages": {
-            "types": "./dist/routes/pages/index.d.cts",
-            "import": "./dist/routes/pages/index.cjs",
-            "require": "./dist/routes/pages/index.cjs"
-        },
-        "./secure-log": {
-            "types": "./dist/secure-log/index.d.cts",
-            "import": "./dist/secure-log/index.cjs",
-            "require": "./dist/secure-log/index.cjs"
-        },
-        "./team-log": {
-            "types": "./dist/team-log/index.d.cts",
-            "import": "./dist/team-log/index.cjs",
-            "require": "./dist/team-log/index.cjs"
-        },
-        "./secure-log/app-dir": {
-            "types": "./dist/secure-log/routes/app-dir/index.d.cts",
-            "import": "./dist/secure-log/routes/app-dir/index.cjs",
-            "require": "./dist/secure-log/routes/app-dir/index.cjs"
-        },
-        "./secure-log/pages": {
-            "types": "./dist/secure-log/routes/pages/index.d.cts",
-            "import": "./dist/secure-log/routes/pages/index.js",
-            "require": "./dist/secure-log/routes/pages/index.js"
-        },
-        "./team-log/app-dir": {
-            "types": "./dist/team-log/routes/app-dir/index.d.cts",
-            "import": "./dist/team-log/routes/app-dir/index.cjs",
-            "require": "./dist/team-log/routes/app-dir/index.cjs"
-        },
-        "./team-log/pages": {
-            "types": "./dist/team-log/routes/pages/index.d.cts",
-            "import": "./dist/team-log/routes/pages/index.js",
-            "require": "./dist/team-log/routes/pages/index.js"
-        }
+        ".": "./dist/index.js",
+        "./app-dir": "./dist/routes/app-dir/index.js",
+        "./pages": "./dist/routes/pages/index.js",
+        "./secure-log": "./dist/secure-log/index.js",
+        "./team-log": "./dist/team-log/index.js",
+        "./secure-log/app-dir": "./dist/secure-log/routes/app-dir/index.js",
+        "./secure-log/pages": "./dist/secure-log/routes/pages/index.js",
+        "./team-log/app-dir": "./dist/team-log/routes/app-dir/index.js",
+        "./team-log/pages": "./dist/team-log/routes/pages/index.js"
     },
     "scripts": {
         "build": "tsup",

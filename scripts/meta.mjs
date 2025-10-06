@@ -11,7 +11,7 @@ if (!inputDir) {
 }
 
 const project = path.basename(inputDir);
-const metaPath = path.join(inputDir, 'dist', 'metafile-cjs.json');
+const metaPath = path.join(inputDir, 'dist', 'metafile-esm.json');
 const prefix = inputDir.endsWith('/') ? inputDir : inputDir + '/';
 
 const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));

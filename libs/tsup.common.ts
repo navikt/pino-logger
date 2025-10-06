@@ -1,8 +1,8 @@
 import { Options } from 'tsup'
 
 export const sharedConfig: Options = {
+    format: "esm",
     dts: true,
-    splitting: false,
     sourcemap: true,
     clean: true,
     metafile: true,
