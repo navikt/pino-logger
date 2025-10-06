@@ -11,22 +11,14 @@
         "dist",
         "package.json"
     ],
+    "engines": {
+        "node": "^20.19.0 || >= 22.12.0"
+    },
+    "types": "./dist/index.d.ts",
     "exports": {
-        ".": {
-            "types": "./dist/index.d.cts",
-            "import": "./dist/index.cjs",
-            "require": "./dist/index.cjs"
-        },
-        "./secure-log": {
-            "types": "./dist/secure-log/index.d.cts",
-            "import": "./dist/secure-log/index.cjs",
-            "require": "./dist/secure-log/index.cjs"
-        },
-        "./team-log": {
-            "types": "./dist/team-log/index.d.cts",
-            "import": "./dist/team-log/index.cjs",
-            "require": "./dist/team-log/index.cjs"
-        }
+        ".": "./dist/index.js",
+        "./secure-log": "./dist/secure-log/index.js",
+        "./team-log": "./dist/team-log/index.js"
     },
     "scripts": {
         "build": "tsup",
