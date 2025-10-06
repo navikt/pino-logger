@@ -502,7 +502,7 @@ __metadata:
   resolution: "@navikt/next-logger@workspace:libs/next-logger"
   dependencies:
     "@navikt/pino-logger": "workspace:^"
-    "@types/node": "npm:^22.15.34"
+    "@types/node": "npm:^24.7.0"
     next: "npm:15.3.4"
     pino: "npm:^9.7.0"
     pino-roll: "npm:3"
@@ -522,7 +522,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@navikt/pino-logger@workspace:libs/pino-logger"
   dependencies:
-    "@types/node": "npm:^22.15.34"
+    "@types/node": "npm:^24.7.0"
     pino: "npm:^9.7.0"
     pino-roll: "npm:3"
     pino-socket: "npm:7"
@@ -864,12 +864,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.34":
-  version: 22.15.34
-  resolution: "@types/node@npm:22.15.34"
+"@types/node@npm:^24.7.0":
+  version: 24.7.0
+  resolution: "@types/node@npm:24.7.0"
   dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10c0/fb6a6b36daaa1b484aaba3d33b4d1e7b37ea993e29f20b7a676affa76ed6ff6acd2ded4d5003469bc8dbc815b3d224533b4560896037ef6d5b5d552721ab7d57
+    undici-types: "npm:~7.14.0"
+  checksum: 10c0/f036c78062cb3a0d5c6586bf2dac347ed3f4af121cef4ab92c85c44e32be1c50aab5ba96955842b7f8165f0e0f1c8066d1813ae259372df6c0fa9fadb1116a3e
   languageName: node
   linkType: hard
 
@@ -4896,10 +4896,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.21.0":
-  version: 6.21.0
-  resolution: "undici-types@npm:6.21.0"
-  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
+"undici-types@npm:~7.14.0":
+  version: 7.14.0
+  resolution: "undici-types@npm:7.14.0"
+  checksum: 10c0/e7f3214b45d788f03c51ceb33817be99c65dae203863aa9386b3ccc47201a245a7955fc721fb581da9c888b6ebad59fa3f53405214afec04c455a479908f0f14
   languageName: node
   linkType: hard
 

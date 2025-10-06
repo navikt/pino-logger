@@ -2,13 +2,13 @@
     "name": "pino-logger-root",
     "private": true,
     "license": "MIT",
-    "packageManager": "yarn@4.9.1",
+    "packageManager": "yarn@4.10.3",
     "workspaces": [
         "libs/pino-logger",
         "libs/next-logger"
     ],
     "engines": {
-        "node": "22"
+        "node": "24"
     },
     "scripts": {
         "build": "yarn workspaces foreach -At run build",
