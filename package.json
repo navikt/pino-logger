@@ -13,7 +13,9 @@
     "scripts": {
         "build": "yarn workspaces foreach -At run build",
         "test": "yarn workspaces foreach -A run test",
-        "clean": "yarn workspaces foreach -A run clean"
+        "clean": "yarn workspaces foreach -A run clean",
+        "next:patch": "yarn workspaces foreach -A --no-private version patch -i",
+        "next:minor": "yarn workspaces foreach -A --no-private version minor -i"
     },
     "devDependencies": {
         "@navikt/eslint-config-teamsykmelding": "^7.1.0",

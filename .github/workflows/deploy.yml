@@ -32,20 +32,14 @@ jobs:
           ./scripts/meta.mjs libs/pino-logger >> $GITHUB_STEP_SUMMARY
           ./scripts/meta.mjs libs/next-logger >> $GITHUB_STEP_SUMMARY
 
-      - name: Set next version
-        run: |
-          TEMP_VERSION=$(date +'%Y%m%d%H%M%S')
-          jq --arg v "4.3.0-$TEMP_VERSION" '.version = $v' libs/pino-logger/package.json > libs/pino-logger/package.tmp.json && mv libs/pino-logger/package.tmp.json libs/pino-logger/package.json
-          jq --arg v "4.3.0-$TEMP_VERSION" '.version = $v' libs/next-logger/package.json > libs/next-logger/package.tmp.json && mv libs/next-logger/package.tmp.json libs/next-logger/package.json
-
       - name: Publish pino-logger
-        if: github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'chore/esm-only')
-        run: yarn npm publish --tag next
+        if: github.ref == 'refs/heads/main'
+        run: yarn npm publish
         working-directory: libs/pino-logger
 
       - name: Publish next-logger
-        if: github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'chore/esm-only')
-        run: yarn npm publish --tag next
+        if: github.ref == 'refs/heads/main'
+        run: yarn npm publish
         working-directory: libs/next-logger
 
   increment-version:
