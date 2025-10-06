@@ -504,7 +504,7 @@ __metadata:
     "@navikt/pino-logger": "workspace:^"
     "@types/node": "npm:^22.15.34"
     next: "npm:15.3.4"
-    pino: "npm:^9.7.0"
+    pino: "npm:^10.0.0"
     pino-roll: "npm:3"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.8.3"
@@ -523,7 +523,7 @@ __metadata:
   resolution: "@navikt/pino-logger@workspace:libs/pino-logger"
   dependencies:
     "@types/node": "npm:^22.15.34"
-    pino: "npm:^9.7.0"
+    pino: "npm:^10.0.0"
     pino-roll: "npm:3"
     pino-socket: "npm:7"
     tsup: "npm:^8.5.0"
@@ -2237,13 +2237,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-redact@npm:^3.1.1":
-  version: 3.5.0
-  resolution: "fast-redact@npm:3.5.0"
-  checksum: 10c0/7e2ce4aad6e7535e0775bf12bd3e4f2e53d8051d8b630e0fa9e67f68cb0b0e6070d2f7a94b1d0522ef07e32f7c7cda5755e2b677a6538f1e9070ca053c42343a
-  languageName: node
-  linkType: hard
-
 "fastq@npm:^1.6.0":
   version: 1.19.1
   resolution: "fastq@npm:1.19.1"
@@ -3604,12 +3597,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^9.7.0":
-  version: 9.7.0
-  resolution: "pino@npm:9.7.0"
+"pino@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "pino@npm:10.0.0"
   dependencies:
     atomic-sleep: "npm:^1.0.0"
-    fast-redact: "npm:^3.1.1"
     on-exit-leak-free: "npm:^2.1.0"
     pino-abstract-transport: "npm:^2.0.0"
     pino-std-serializers: "npm:^7.0.0"
@@ -3617,11 +3609,12 @@ __metadata:
     quick-format-unescaped: "npm:^4.0.3"
     real-require: "npm:^0.2.0"
     safe-stable-stringify: "npm:^2.3.1"
+    slow-redact: "npm:^0.3.0"
     sonic-boom: "npm:^4.0.1"
     thread-stream: "npm:^3.0.0"
   bin:
     pino: bin.js
-  checksum: 10c0/c7f8a83a9a9d728b4eff6d0f4b9367f031c91bcaa5806fbf0eedcc8e77faba593d59baf11a8fba0dd1c778bb17ca7ed01418ac1df4ec129faeedd4f3ecaff66f
+  checksum: 10c0/f95fcc51523310e9ece1822f8ef4d8e6c2b35f67eca9805fe18fdef21dfac81fa128f1ebaa3c9a11571120854391b10b3b339f2e5836f805edaf6936781c6e6f
   languageName: node
   linkType: hard
 
@@ -4293,6 +4286,13 @@ __metadata:
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: 10c0/e18488c6a42bdfd4ac5be85b2ced3ccd0224773baae6ad42cfbb9ec74fc07f9fa8396bd35ee638084ead7a2a0818eb5e7151111544d4731ce843019dab4be47b
+  languageName: node
+  linkType: hard
+
+"slow-redact@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "slow-redact@npm:0.3.1"
+  checksum: 10c0/7f495a85108f554ea492b7fa1c8892b690a8172cb6d8cd77c56fef00a15d15f46b497a8eb61355a61cc06cbb34246088dc3372ed2ffb22e645c8c5dabc334563
   languageName: node
   linkType: hard
 
