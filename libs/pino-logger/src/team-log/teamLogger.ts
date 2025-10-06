@@ -5,10 +5,10 @@ export { createLogger } from '../logger'
 
 type RequiredNaisFields = Record<string, string>
 
-type TeamLogConfigTuple = [DestinationStream | undefined, RequiredNaisFields, LoggerOptions]
+type TeamLogConfigTriple = [DestinationStream | undefined, RequiredNaisFields, LoggerOptions]
 
-let config: TeamLogConfigTuple | null = null
-function getConfig(): TeamLogConfigTuple {
+let config: TeamLogConfigTriple | null = null
+function getConfig(): TeamLogConfigTriple {
     if (config != null) {
         return config
     }
