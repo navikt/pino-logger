@@ -18,7 +18,7 @@
         "next:minor": "yarn workspaces foreach -A --no-private version minor -i"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^7.1.0",
+        "@navikt/eslint-config-teamsykmelding": "^7.2.0",
         "prettier": "^3.6.2",
         "rimraf": "^6.0.1"
     },
