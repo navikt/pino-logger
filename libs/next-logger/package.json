@@ -35,7 +35,7 @@
         "@navikt/pino-logger": "workspace:^"
     },
     "peerDependencies": {
-        "next": "14 || 15",
+        "next": "14 || 15 || 16",
         "pino": "8 || 9 || 10"
     },
     "optionalDependencies": {
