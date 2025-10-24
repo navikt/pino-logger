@@ -548,6 +548,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@navikt/pino-logger@workspace:libs/pino-logger"
   dependencies:
+    "@opentelemetry/api": "npm:^1.9.0"
     "@types/node": "npm:^24.6.2"
     pino: "npm:^10.0.0"
     pino-roll: "npm:3"
@@ -673,6 +674,13 @@ __metadata:
   dependencies:
     semver: "npm:^7.3.5"
   checksum: 10c0/c90935d5ce670c87b6b14fab04a965a3b8137e585f8b2a6257263bd7f97756dd736cb165bb470e5156a9e718ecd99413dccc54b1138c1a46d6ec7cf325982fe5
+  languageName: node
+  linkType: hard
+
+"@opentelemetry/api@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@opentelemetry/api@npm:1.9.0"
+  checksum: 10c0/9aae2fe6e8a3a3eeb6c1fdef78e1939cf05a0f37f8a4fae4d6bf2e09eb1e06f966ece85805626e01ba5fab48072b94f19b835449e58b6d26720ee19a58298add
   languageName: node
   linkType: hard
 
