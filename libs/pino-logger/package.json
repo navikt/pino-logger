@@ -27,6 +27,9 @@
     "peerDependencies": {
         "pino": "8 || 9 || 10"
     },
+    "dependencies": {
+        "@opentelemetry/api": "^1.9.0"
+    },
     "optionalDependencies": {
         "pino-roll": "3",
         "pino-socket": "7"
