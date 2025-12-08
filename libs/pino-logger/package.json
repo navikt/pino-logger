@@ -1,6 +1,6 @@
 {
     "name": "@navikt/pino-logger",
-    "version": "4.4.3",
+    "version": "4.4.4",
     "license": "MIT",
     "type": "module",
     "publishConfig": {
