@@ -2,7 +2,7 @@
     "name": "pino-logger-root",
     "private": true,
     "license": "MIT",
-    "packageManager": "yarn@4.10.3",
+    "packageManager": "yarn@4.12.0",
     "workspaces": [
         "libs/pino-logger",
         "libs/next-logger"
@@ -19,8 +19,8 @@
     },
     "devDependencies": {
         "@navikt/eslint-config-teamsykmelding": "^7.2.0",
-        "prettier": "^3.6.2",
-        "rimraf": "^6.0.1"
+        "prettier": "^3.7.4",
+        "rimraf": "^6.1.2"
     },
     "eslintConfig": {
         "extends": [
