@@ -31,11 +31,11 @@
         "@opentelemetry/api": "^1.9.0"
     },
     "optionalDependencies": {
-        "pino-roll": "3.1.0",
+        "pino-roll": "4.0.0",
         "pino-socket": "7.4.0"
     },
     "devDependencies": {
-        "@types/node": "^24.10.1",
+        "@types/node": "^24.10.4",
         "pino": "^10.1.0",
         "tsup": "^8.5.1",
         "typescript": "^5.9.3"
