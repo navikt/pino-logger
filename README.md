@@ -5,7 +5,7 @@ This repo has two libraries, @navikt/pino-logger for logging in a node/bun/deno 
 - [Docs for @navikt/pino-logger](#naviktpino-logger) - A pino logger for node/bun/deno
 - [Docs for @navikt/next-logger](#naviktnext-logger) - An isomorphic logger for Next.js applications
 
-Latest news (2025-01-25): Secure logs is now completely shut off in Nav, and support in this library was removed in a minor version.
+Latest news (2025-01-25): Secure logs is now completely shut off in Nav, and support in this library was removed in v4.5.0.
 
 [Go to migrations from v3 to v4](#breaking-changes-migrating-from-v3-to-v4)
 
