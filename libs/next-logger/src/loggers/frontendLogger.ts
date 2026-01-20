@@ -2,7 +2,7 @@ import pino from 'pino'
 import { getConfig } from '../config'
 
 type FrontendLoggerOptions = {
-    type: 'secure' | 'team' | 'default'
+    type: 'team' | 'default'
 }
 
 export const frontendLogger = (opts: FrontendLoggerOptions = { type: 'default' }): pino.Logger =>
@@ -41,8 +41,6 @@ function getPath(type: FrontendLoggerOptions['type']): string {
     switch (type) {
         case 'default':
             return `${config?.basePath ?? ''}${config?.apiPath ?? `/api/logger`}`
-        case 'secure':
-            return `${config?.basePath ?? ''}${config?.secureLogApiPath ?? `/api/secure-logger`}`
         case 'team':
             return `${config?.basePath ?? ''}${config?.teamLogApiPath ?? `/api/team-logger`}`
     }

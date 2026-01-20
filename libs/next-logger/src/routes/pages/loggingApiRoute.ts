@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import pino, { BaseLogger } from 'pino'
 import { Metadata, prefixKeys } from '../metadata'
 
-type LogLevels = Exclude<keyof BaseLogger, 'string' | 'level'>
+type LogLevels = Exclude<keyof BaseLogger, 'string' | 'level' | 'msgPrefix'>
 
 const validLogLevels: Record<LogLevels, LogLevels> = {
     error: 'error',

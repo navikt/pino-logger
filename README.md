@@ -5,13 +5,13 @@ This repo has two libraries, @navikt/pino-logger for logging in a node/bun/deno 
 - [Docs for @navikt/pino-logger](#naviktpino-logger) - A pino logger for node/bun/deno
 - [Docs for @navikt/next-logger](#naviktnext-logger) - An isomorphic logger for Next.js applications
 
-[Go to migrations from v1 to v2/3](#breaking-changes-migrating-from-v1-to-v2v3)
+Latest news (2025-01-25): Secure logs is now completely shut off in Nav, and support in this library was removed in a minor version.
 
 [Go to migrations from v3 to v4](#breaking-changes-migrating-from-v3-to-v4)
 
 # @navikt/pino-logger
 
-An simple logger that lets you log in your server runtime. Logs in a JSON format that [logs.adeo.no](https://logs.adeo.no) understands. And all logs are grouped under your application (`+application:yourapp`) with correct log level.
+A simple logger that lets you log in your server runtime. Logs in a JSON format that [logs.az.nav.no](https://logs.az.nav.no/) understands, and Grafana Faro is happy with.
 
 ## Getting started
 
@@ -36,23 +36,13 @@ yarn add pino-socket
 npm i pino-socket
 ```
 
-if you want to use the _**deprecated**_ secure logger (don't, use team logs), you also need to install `pino-roll`:
-
-```bash
-yarn add pino-roll
-```
-
-```bash
-npm i pino-roll
-```
-
 ### Step 1: Logging
 
 Anywhere in your application where you want to log, you should import `import { logger } from '@navikt/pino-logger';`,
 this is a [pino](https://github.com/pinojs/pino/blob/master/docs/api.md#logger) instance, use it to log, for example:
 `logger.warn("Uh oh")`.
 
-Alternatively, if you need secure logging, use `ìmport { teamLogger } from '@navikt/pino-logger/team-logs';`.
+Alternatively, if you need secure logging (team logs), use `ìmport { teamLogger } from '@navikt/pino-logger/team-logs';`.
 See [Team Logs](#team-logs) for more information on secure logging.
 
 ### Step 2: pino-pretty
@@ -80,8 +70,6 @@ Simply pipe the output of your development server into pino pretty with correct 
 An isomorphic logger that lets you log from both the frontend and the backend. Both will log in a JSON format
 that [logs.adeo.no](https://logs.adeo.no) understands. And all logs are grouped under your application (`+application:yourapp`) with correct log level.
 
-Now with [SecureLogs](https://doc.nais.io/observability/logging/how-to/enable-secure-logs/) support!
-
 ## Getting started
 
 ### Installation
@@ -94,14 +82,15 @@ yarn add @navikt/next-logger pino
 npm i @navikt/next-logger pino
 ```
 
-if you want to use the secure logger, you also need to install `pino-roll`:
+if you want to use the [team logs](https://docs.nais.io/observability/logging/how-to/team-logs), you also need to
+install `pino-socket`:
 
 ```bash
-yarn add pino-roll
+yarn add pino-socket
 ```
 
 ```bash
-npm i pino-roll
+npm i pino-socket
 ```
 
 ### Step 1: Prepare Next.js for isomorphic logging
@@ -282,47 +271,7 @@ export default withMetadata((req) => {
 
 Remember not to parse the body using `.json()` or `.text`!
 
-This feature is available only for team-log and secure-log.
-
-## Securelogs (Deprecated)
-
-If you want to log sensitive information, you can use the `secureLogger` function. This will instead of logging to
-stdout log to a file on /secure-logs.
-This requires some setup, see [nais docs](https://doc.nais.io/observability/logging/how-to/enable-secure-logs/) for how
-to enable secure logging in your app.
-
-The log file is setup with [pino-roll](https://www.npmjs.com/package/pino-roll) for rolling the logs based on file size.
-
-For more details on how to configure the required API-routes for secure logging, see the team log section above, but
-replace the imports with the secure logger imports.
-
-Remember secure logs are being deprecated in favor of team logs, so you should not use this feature in new applications.
-
-## Breaking changes: migrating from v1 to v2/v3
-
-The only breaking change is that the paths for the API routes have been updated.
-
-v2→v3 has no breaking changes, but changed how the library was built.
-
-### App Dir
-
-`app/api/logger/route.ts`:
-
-```diff
-- export { POSTLoggingRouteHandler as POST } from '@navikt/next-logger'
-+ export { POST } from '@navikt/next-logger/app-dir'
-```
-
-### Pages
-
-`pages/api/logger/route.ts`:
-
-```diff
-- export { pinoLoggingRoute as default } from '@navikt/next-logger'
-+ export { loggingRoute as default } from '@navikt/next-logger/pages'
-```
-
-If you want to use the new secureLogger feature, refer to the Securelogs docs above.
+This feature is available only for team-log.
 
 ## Breaking changes: migrating from v3 to v4
 

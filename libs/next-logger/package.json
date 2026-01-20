@@ -19,10 +19,7 @@
         ".": "./dist/index.js",
         "./app-dir": "./dist/routes/app-dir/index.js",
         "./pages": "./dist/routes/pages/index.js",
-        "./secure-log": "./dist/secure-log/index.js",
         "./team-log": "./dist/team-log/index.js",
-        "./secure-log/app-dir": "./dist/secure-log/routes/app-dir/index.js",
-        "./secure-log/pages": "./dist/secure-log/routes/pages/index.js",
         "./team-log/app-dir": "./dist/team-log/routes/app-dir/index.js",
         "./team-log/pages": "./dist/team-log/routes/pages/index.js"
     },
@@ -37,9 +34,6 @@
     "peerDependencies": {
         "next": "14 || 15 || 16",
         "pino": "8 || 9 || 10"
-    },
-    "optionalDependencies": {
-        "pino-roll": "4.0.0"
     },
     "devDependencies": {
         "@types/node": "^24.10.4",
