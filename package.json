@@ -19,7 +19,7 @@
     },
     "devDependencies": {
         "@navikt/tsm-prettier": "^2.0.0",
-        "prettier": "^3.8.0",
+        "prettier": "^3.8.1",
         "rimraf": "^6.1.2"
     },
     "prettier": "@navikt/tsm-prettier"
