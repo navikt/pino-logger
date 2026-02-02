@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@types/node": "^24.10.9",
-        "pino": "^10.2.0",
+        "pino": "^10.3.0",
         "tsup": "^8.5.1",
         "typescript": "^5.9.3"
     }
