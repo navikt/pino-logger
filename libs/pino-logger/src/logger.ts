@@ -7,6 +7,7 @@ export const createLogger = (defaultConfig: LoggerOptions = {}, destination?: De
             ...defaultConfig,
             timestamp: pino.stdTimeFunctions.isoTime,
             messageKey: 'message',
+            level: process.env.LOG_LEVEL || 'info',
             formatters: {
                 level: (label) => ({ level: label }),
                 log: (object: any) => {
