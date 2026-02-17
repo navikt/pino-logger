@@ -4,7 +4,7 @@ on:
   push:
     branches:
       # Add the branch you're working on here
-      - grafana
+      - stack
 
 permissions:
   actions: read
@@ -39,8 +39,8 @@ jobs:
       - run: |
           CURRENT_VERSION=$(jq -r '.version' libs/pino-logger/package.json)
           TEMP_VERSION=$(date +'%Y%m%d%H%M%S')
-          jq --arg v "4.4.0-$TEMP_VERSION" '.version = $v' libs/pino-logger/package.json > libs/pino-logger/package.tmp.json && mv libs/pino-logger/package.tmp.json libs/pino-logger/package.json
-          jq --arg v "4.4.0-$TEMP_VERSION" '.version = $v' libs/next-logger/package.json > libs/next-logger/package.tmp.json && mv libs/next-logger/package.tmp.json libs/next-logger/package.json
+          jq --arg v "$CURRENT_VERSION-$TEMP_VERSION" '.version = $v' libs/pino-logger/package.json > libs/pino-logger/package.tmp.json && mv libs/pino-logger/package.tmp.json libs/pino-logger/package.json
+          jq --arg v "$CURRENT_VERSION-$TEMP_VERSION" '.version = $v' libs/next-logger/package.json > libs/next-logger/package.tmp.json && mv libs/next-logger/package.tmp.json libs/next-logger/package.json
 
       - name: Publish pino-logger
         run: yarn npm publish --tag=beta

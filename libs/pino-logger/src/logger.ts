@@ -10,18 +10,6 @@ export const createLogger = (defaultConfig: LoggerOptions = {}, destination?: De
             level: process.env.LOG_LEVEL || 'info',
             formatters: {
                 level: (label) => ({ level: label }),
-                log: (object: any) => {
-                    if (object.err) {
-                        // backendlogger has an Error-instance, frontendlogger has already serialized it
-                        const err = object.err instanceof Error ? pino.stdSerializers.err(object.err) : object.err
-                        object.stack_trace = err.stack
-                        object.type = err.type
-                        object.message = err.message
-                        delete object.err
-                    }
-
-                    return object
-                },
             },
             mixin: () => {
                 const span = trace.getSpan(context.active())
