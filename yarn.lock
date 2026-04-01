@@ -514,7 +514,7 @@ __metadata:
     "@opentelemetry/api": "npm:^1.9.0"
     "@types/node": "npm:^24.10.9"
     pino: "npm:^10.2.0"
-    pino-socket: "npm:7.4.0"
+    pino-socket: "npm:8.0.0"
     tsup: "npm:^8.5.1"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -933,13 +933,6 @@ __metadata:
     "@vitest/pretty-format": "npm:4.0.17"
     tinyrainbow: "npm:^3.0.3"
   checksum: 10c0/1e2e4d7d7709ec022f603a1e12015523a2290f326c0bbe0c6bd5481ec396d4efc6bf8c738d601915d88e74267e9841df1e05157edced10f5048865204aeb86ff
-  languageName: node
-  linkType: hard
-
-"abbrev@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "abbrev@npm:2.0.0"
-  checksum: 10c0/f742a5a107473946f426c691c08daba61a1d15942616f300b5d32fd735be88fef5cba24201757b6c407fd564555fb48c751cfa33519b2605c8a7aadd22baf372
   languageName: node
   linkType: hard
 
@@ -1670,17 +1663,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nopt@npm:^7.0.0":
-  version: 7.2.1
-  resolution: "nopt@npm:7.2.1"
-  dependencies:
-    abbrev: "npm:^2.0.0"
-  bin:
-    nopt: bin/nopt.js
-  checksum: 10c0/a069c7c736767121242037a22a788863accfa932ab285a1eb569eb8cd534b09d17206f68c37f096ae785647435e0c5a5a0a67b42ec743e481a455e5ae6a6df81
-  languageName: node
-  linkType: hard
-
 "nopt@npm:^9.0.0":
   version: 9.0.0
   resolution: "nopt@npm:9.0.0"
@@ -1786,18 +1768,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"pino-socket@npm:7.4.0":
-  version: 7.4.0
-  resolution: "pino-socket@npm:7.4.0"
+"pino-socket@npm:8.0.0":
+  version: 8.0.0
+  resolution: "pino-socket@npm:8.0.0"
   dependencies:
     backoff: "npm:^2.5.0"
-    nopt: "npm:^7.0.0"
+    nopt: "npm:^9.0.0"
     pump: "npm:^3.0.0"
     split2: "npm:^4.0.0"
     through2: "npm:^4.0.2"
   bin:
     pino-socket: psock.js
-  checksum: 10c0/1a3f38ae69c71efd225a5df8bfb6fc0cbe70c0e625221bbec7a7786a4804b9ab61a3e37dfa3a18abc4d03f28e70a32f12744c923e0426951e35dfec19dcdb872
+  checksum: 10c0/2a18fa27eb8a7ce312c82f95f8aa84b34f68a22c529efd35fb74e7b608f761f4f828719dac8f630502a61b3a7728d0b2e370430fce026c0ef18b900855686a3e
   languageName: node
   linkType: hard
 
