@@ -14,7 +14,6 @@
     "scripts": {
         "build": "yarn workspaces foreach -At run build",
         "test": "yarn workspaces foreach -A run test",
-        "clean": "yarn workspaces foreach -A run clean",
         "lint": "oxlint",
         "lint:fix": "oxlint --fix",
         "fmt": "oxfmt",
@@ -28,6 +27,6 @@
         "oxfmt": "^0.64.0",
         "oxlint": "^1.79.0",
         "oxlint-tsgolint": "^7.0.2001",
-        "rimraf": "^6.1.2"
+        "rimraf": "^6.1.3"
     }
 }

@@ -28,11 +28,6 @@ jobs:
       - run: yarn build
       - run: yarn lint
 
-      - name: Summarize tsup build
-        run: |
-          ./scripts/meta.mjs libs/pino-logger >> $GITHUB_STEP_SUMMARY
-          ./scripts/meta.mjs libs/next-logger >> $GITHUB_STEP_SUMMARY
-
       - name: Publish pino-logger
         if: github.ref == 'refs/heads/main'
         run: yarn npm publish
