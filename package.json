@@ -2,7 +2,7 @@
     "name": "pino-logger-root",
     "private": true,
     "license": "MIT",
-    "packageManager": "yarn@4.12.0",
+    "packageManager": "yarn@4.18.0",
     "workspaces": [
         "libs/pino-logger",
         "libs/next-logger"
