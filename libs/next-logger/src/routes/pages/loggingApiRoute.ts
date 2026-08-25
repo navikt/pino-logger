@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import pino, { BaseLogger } from 'pino'
+
 import { Metadata, prefixKeys } from '../metadata'
 
 type LogLevels = Exclude<keyof BaseLogger, 'string' | 'level' | 'msgPrefix'>

@@ -1,4 +1,5 @@
 import pino from 'pino'
+
 import { getConfig } from '../config'
 
 type FrontendLoggerOptions = {

@@ -1,5 +1,5 @@
-import pino from 'pino'
 import { createLogger as backendLogger } from '@navikt/pino-logger'
+import pino from 'pino'
 
 import { frontendLogger as frontendLogger } from './loggers/frontendLogger'
 

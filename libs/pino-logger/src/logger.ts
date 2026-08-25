@@ -1,5 +1,5 @@
-import pino, { DestinationStream, LoggerOptions } from 'pino'
 import { context, isSpanContextValid, trace } from '@opentelemetry/api'
+import pino, { DestinationStream, LoggerOptions } from 'pino'
 
 export const createLogger = (defaultConfig: LoggerOptions = {}, destination?: DestinationStream): pino.Logger =>
     pino(

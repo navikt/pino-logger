@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { createLogger } from '@navikt/pino-logger'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 import { createLoggingApiRoute } from './loggingApiRoute'
 
