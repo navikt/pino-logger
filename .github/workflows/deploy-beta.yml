@@ -32,11 +32,6 @@ jobs:
       - run: yarn build
       - run: yarn lint
 
-      - name: Summarize tsup build
-        run: |
-          ./scripts/meta.mjs libs/pino-logger >> $GITHUB_STEP_SUMMARY
-          ./scripts/meta.mjs libs/next-logger >> $GITHUB_STEP_SUMMARY
-
       - run: |
           CURRENT_VERSION=$(jq -r '.version' libs/pino-logger/package.json)
           TEMP_VERSION=$(date +'%Y%m%d%H%M%S')
