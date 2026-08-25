@@ -1,3 +1,5 @@
+// oxlint-disable no-console
+
 import pino from 'pino'
 
 import { getConfig } from '../config'

@@ -32,7 +32,7 @@ export const createLoggingApiRoute =
         const label: unknown = level.label
         if (!isValidLoggingLabel(label)) {
             res.status(400).json({
-                error: `Invalid label ${label}`,
+                error: `Invalid label ${label as string}`,
             })
             return
         }

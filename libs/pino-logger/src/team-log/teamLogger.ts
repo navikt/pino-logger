@@ -1,3 +1,5 @@
+// oxlint-disable no-console
+
 import pino, { DestinationStream, LoggerOptions } from 'pino'
 
 import { createLogger } from '../logger'
@@ -50,7 +52,7 @@ function getConfig(): TeamLogConfigTriple {
 export const createTeamLogger = (defaultConfig: LoggerOptions = {}): ReturnType<typeof createLogger> => {
     let logger: ReturnType<typeof createLogger> | null = null
 
-    const getLogger = () => {
+    const getLogger = (): ReturnType<typeof createLogger> => {
         const [transport, requiredFields, devConfig] = getConfig()
         logger = createLogger({ ...defaultConfig, ...devConfig }, transport).child(requiredFields)
         return logger

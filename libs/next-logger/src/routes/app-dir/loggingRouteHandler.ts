@@ -28,7 +28,7 @@ export const createLoggingRouteHandler =
         if (!isValidLoggingLabel(label)) {
             return Response.json(
                 {
-                    error: `Invalid label ${label}`,
+                    error: `Invalid label ${label as string}`,
                 },
                 { status: 400 },
             )

@@ -1,6 +1,6 @@
 export type Metadata = Record<string, unknown>
 
-export function prefixKeys(metadata: Metadata | undefined) {
+export function prefixKeys(metadata: Metadata | undefined): Metadata | undefined {
     if (!metadata) {
         return metadata
     }

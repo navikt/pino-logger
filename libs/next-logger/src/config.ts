@@ -11,7 +11,7 @@ declare global {
     var _loggerConfig: LoggerConfiguration | null
 }
 
-export const configureLogger = (configuration: LoggerConfiguration) => {
+export const configureLogger = (configuration: LoggerConfiguration): void => {
     globalThis._loggerConfig = configuration
 }
 

@@ -2,12 +2,12 @@ import { test, expect, vi, afterEach } from 'vitest'
 
 import { POST, withMetadata } from '.'
 
-const infoMock = vi.fn()
+const infoMock = vi.fn<() => void>()
 
 vi.mock('../../logger', () => {
     return {
         teamLogger: {
-            child: vi.fn(() => ({
+            child: vi.fn<() => { info: typeof infoMock }> (() => ({
                 info: infoMock,
             })),
         },
@@ -18,7 +18,7 @@ afterEach(() => {
     infoMock.mockClear()
 })
 
-test('Normal POST should work as expected', async (t) => {
+test('Normal POST should work as expected', async () => {
     const testRequest = new Request('http://localhost:3000', {
         method: 'POST',
         body: JSON.stringify({ level: { label: 'info' }, ts: 123, messages: ['test'] }),
@@ -33,7 +33,7 @@ test('Normal POST should work as expected', async (t) => {
     expect(infoMock).toHaveBeenCalledWith('test')
 })
 
-test('withMetadata should add metadata', async (t) => {
+test('withMetadata should add metadata', async () => {
     const testRequest = new Request('http://localhost:3000', {
         method: 'POST',
         body: JSON.stringify({ level: { label: 'info' }, ts: 123, messages: ['test'] }),
