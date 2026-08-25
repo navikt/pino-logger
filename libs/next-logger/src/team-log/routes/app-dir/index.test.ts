@@ -7,7 +7,7 @@ const infoMock = vi.fn<() => void>()
 vi.mock('../../logger', () => {
     return {
         teamLogger: {
-            child: vi.fn<() => { info: typeof infoMock }> (() => ({
+            child: vi.fn<() => { info: typeof infoMock }>(() => ({
                 info: infoMock,
             })),
         },

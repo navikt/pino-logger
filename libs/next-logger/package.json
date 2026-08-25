@@ -14,17 +14,17 @@
     "engines": {
         "node": "^20.19.0 || >= 22.12.0 || 24.x"
     },
-    "types": "./dist/index.d.ts",
+    "types": "./dist/index.d.mts",
     "exports": {
-        ".": "./dist/index.js",
-        "./app-dir": "./dist/routes/app-dir/index.js",
-        "./pages": "./dist/routes/pages/index.js",
-        "./team-log": "./dist/team-log/index.js",
-        "./team-log/app-dir": "./dist/team-log/routes/app-dir/index.js",
-        "./team-log/pages": "./dist/team-log/routes/pages/index.js"
+        ".": "./dist/index.mjs",
+        "./app-dir": "./dist/routes/app-dir/index.mjs",
+        "./pages": "./dist/routes/pages/index.mjs",
+        "./team-log": "./dist/team-log/index.mjs",
+        "./team-log/app-dir": "./dist/team-log/routes/app-dir/index.mjs",
+        "./team-log/pages": "./dist/team-log/routes/pages/index.mjs"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsdown",
         "clean": "rimraf dist",
         "test": "vitest"
     },
@@ -39,7 +39,7 @@
         "@types/node": "^24.10.9",
         "next": "16.1.3",
         "pino": "^10.2.0",
-        "tsup": "^8.5.1",
+        "tsdown": "^0.22.14",
         "typescript": "^7.0.2",
         "vitest": "^4.0.17"
     }
