@@ -26,7 +26,7 @@
         "pino": "8 || 9 || 10"
     },
     "dependencies": {
-        "@opentelemetry/api": "^1.9.1"
+        "@opentelemetry/api": "^1.10.0"
     },
     "optionalDependencies": {
         "pino-socket": "8.0.0"
