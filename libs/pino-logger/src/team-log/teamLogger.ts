@@ -26,6 +26,7 @@ function getConfig(): TeamLogConfigTriple {
                     address: 'team-logs.nais-system',
                     port: 5170,
                     mode: 'tcp',
+                    reconnect: true,
                 },
             }),
             requiredFields,
